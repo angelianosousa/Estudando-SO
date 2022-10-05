@@ -1,6 +1,6 @@
-## Projeto 01
+# Projeto 01 - Trabalhando com Threads
 
-## Descrição: Implementar um programa que faça as seguintes tarefas.
+> ## Descrição: Implementar um programa que faça as seguintes tarefas.
 * DONE - Gerar um vetor de 10^8 posições preenchido aleatoriamento com algum dítigo entre 0 a 9.
 * TODO - Armazenar quantas vezes apareceu cada digito possível.
 * TODO - Exibir em tempo real a contagem de quantos digitos foram encontrados até o momento.
