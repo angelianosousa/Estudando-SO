@@ -1,9 +1,9 @@
 from random import randint
 from threading import Thread
-import time
+from time import sleep, perf_counter
 
 exitFlag = 0
-VECTOR_LENGHT = 10**8
+VECTOR_LENGHT = 10**5
 
 class pop_vector_thread(Thread):
   def __init__(self, ThreadID, name, v_random_numbers):
@@ -23,7 +23,7 @@ class show_counter_thread(Thread):
     self.v_random_numbers     = v_random_numbers
     self.v_counter            = v_counter
   def run(self):
-    count_numbers(self.v_random_numbers, self.v_counter, self.name)
+    count_numbers(self.v_random_numbers, self.v_counter)
 
 # Função para criar e popular o vetor principal
 def pop_vector(vector, threadName, show_count):
@@ -35,31 +35,38 @@ def pop_vector(vector, threadName, show_count):
     show_count -= 1
 
 # Função que mostra o vetor contagem para acompanhar os números
-def print_vector_count(vetor, threadName):
-  show_count = 1
-  while show_count:
-    if exitFlag:
-      threadName.exit()
-    time.sleep(1) # This line is responsable for showing the v_counter in a way confortable for the user
+def print_vector_count(dic_contagem):
+  # show_count = 1
+  # while show_count:
+  #   if exitFlag:
+  #     threadName.exit()
+    # sleep(1) # This line is responsable for showing the v_counter in a way confortable for the user
     print(f'# -============================- #')
-    print(f'# -=====- {threadName} -=====- #')
+    print(f'# -=====- Teste -=====- #')
     print(f'# -============================- #')
 
-    for i in range(len(vetor)):
-      print(f'| {i} -> {vetor[i]}')
-    show_count -= 1
+    for key, value in dic_contagem.items():
+      print(f'| {key} -> {value}')
+    # show_count -= 1
 
 # Função para realizar a contagem e armazenar no vetor conforme a posição
-def count_numbers(vetor, v_count, threadName):
+def count_numbers(vetor, dic_contagem):
   number_increment = 0
 
-  for i in range(len(vetor)):
-    for j in range(9):
+  for i in range(VECTOR_LENGHT):
+    for j in range(10):
       if vetor[i] == j:
-        v_count[j] += 1
+        dic_contagem[str(j)] += 1
         number_increment = j
 
-    print('\n'*19)
-    print_vector_count(v_count, threadName)
+    print_vector_count(dic_contagem)
     print(f'Length: {len(vetor)}')
     print(f'Number increment: {number_increment}')
+    # print('\n'*19)
+
+def sum_numbers_count(dic_contagem):
+  sum = 0
+  for k, v in dic_contagem.items():
+    sum += v
+  
+  print(f'Dic Contagem: {sum}')
