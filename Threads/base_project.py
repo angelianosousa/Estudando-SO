@@ -1,14 +1,15 @@
 from random import randint
-from threading import Thread
-import time
+# from threading import threading.Thread, Lock, enumerate
+import threading
 
 exitFlag = 0
-VECTOR_LENGHT = 10**4
+VECTOR_LENGHT = 10**5
+# threadLock = threading.Lock()
 
 # class populate our principal vector
-class pop_vector_thread(Thread):
+class pop_vector_thread(threading.Thread):
   def __init__(self, ThreadID, name, v_random_numbers):
-    Thread.__init__(self)
+    threading.Thread.__init__(self)
     self.ThreadID             = ThreadID
     self.name                 = name
     self.v_random_numbers     = v_random_numbers
@@ -16,9 +17,9 @@ class pop_vector_thread(Thread):
     pop_vector(self.v_random_numbers, self.name, 1)
 
 # class count numbers in our principal vector async
-class counter_thread(Thread):
+class counter_thread(threading.Thread):
   def __init__(self, ThreadID, name, v_random_numbers, v_counter, start_with, end_with):
-    Thread.__init__(self)
+    threading.Thread.__init__(self)
     self.ThreadID             = ThreadID
     self.name                 = name
     self.v_random_numbers     = v_random_numbers
@@ -39,11 +40,6 @@ def pop_vector(vector, threadName, show_count):
 
 # Função que mostra o vetor contagem para acompanhar os números
 def print_vector_count(dic_contagem):
-  # show_count = 1
-  # while show_count:
-  #   if exitFlag:
-  #     threadName.exit()
-    # sleep(1) # This line is responsable for showing the v_counter in a way confortable for the user
     print('-=-'*10)
     print('  # -=====- Teste -=====- #')
     print('-=-'*10)
@@ -57,10 +53,10 @@ def count_numbers(vetor, dic_contagem, start_with, end_with):
   number_increment = 0
 
   for i in range(VECTOR_LENGHT):
-    for start_with in range(end_with+1):
-      if vetor[i] == start_with:
-        dic_contagem[str(start_with)] += 1
-        number_increment = start_with
+    for j in range(start_with, end_with+1):
+      if vetor[i] == j:
+        dic_contagem[str(j)] += 1
+        number_increment = j
 
     print_vector_count(dic_contagem)
     print('='*30)
