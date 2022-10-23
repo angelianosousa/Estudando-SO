@@ -6,10 +6,10 @@
 * ✅ - Gerar um vetor de 10^8 posições preenchido aleatoriamento com algum dítigo entre 0 a 9.
 * ✅ - Armazenar quantas vezes apareceu cada digito possível.
 * ✅ - Exibir em tempo real a contagem de quantos digitos foram encontrados até o momento.
-* ☑️ - Permitir escolher quantas threads vão realizar a tarefa, variando entre 1, 2, 5 e 10.
-* ☑️ - Abordagem de como organizar as threads para realizar a busca é da equipe.
-* ☑️ - Garantir exclusão mútua usando as estratégias de semáforo e trava.
-* ☑️ - Repetir cada caso possível executar 30 vezes o experimento, ou seja, para os 10 casos existentes com a combinação número de threads e estratégia de exclusão mútua.
+* ✅ - Permitir escolher quantas threads vão realizar a tarefa, variando entre 1, 2, 5 e 10.
+* ✅ - Abordagem de como organizar as threads para realizar a busca é da equipe.
+* ✅ - Garantir exclusão mútua usando as estratégias de semáforo e trava.
+* ✅ - Repetir cada caso possível executar 30 vezes o experimento, ou seja, para os 10 casos existentes com a combinação número de threads e estratégia de exclusão mútua.
 * ☑️ - Descrever no Documento a ser entregue a comparação da média de duração da execução em cada caso possível (número de threads e estratégia de exclusão mútua).
 
 ## Cenário para uso das threads

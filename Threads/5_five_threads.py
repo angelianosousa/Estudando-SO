@@ -1,6 +1,5 @@
-from base_project import sum_numbers_count, pop_vector_thread, counter_thread, print_vector_count
+from base_project import sum_numbers_count, pop_vector_thread, counter_thread
 import time
-import threading
 
 # Função principal
 def main():
@@ -16,16 +15,16 @@ def main():
   # thread_count1 = counter_thread(2, 'Counter_0_to_2', v_random_numbers, dic_contagem, 0, 4)
   # thread_count2 = counter_thread(3, 'Counter_3_to_5', v_random_numbers, dic_contagem, 5, 9)
 
-  thread_count1 = counter_thread(2, 'Counter_0_to_2', v_random_numbers, dic_contagem, 0, 0)
-  # thread_count2 = counter_thread(3, 'Counter_3_to_5', v_random_numbers, dic_contagem, 3, 5)
-  # thread_count3 = counter_thread(4, 'Counter_6_to_7', v_random_numbers, dic_contagem, 6, 7)
-  # thread_count4 = counter_thread(5, 'Counter_8_to_9', v_random_numbers, dic_contagem, 8, 9)
+  thread_count1 = counter_thread(2, 'Counter_0_to_3', v_random_numbers, dic_contagem, 0, 3)
+  thread_count2 = counter_thread(3, 'Counter_4_to_6', v_random_numbers, dic_contagem, 4, 6)
+  thread_count3 = counter_thread(4, 'Counter_7_to_9', v_random_numbers, dic_contagem, 7, 9)
+  thread_count4 = counter_thread(5, 'Counter_8_to_9', v_random_numbers, dic_contagem, 8, 9)
 
   threads.append(thread_pop)
   threads.append(thread_count1)
-  # threads.append(thread_count2)
-  # threads.append(thread_count3)
-  # threads.append(thread_count4)
+  threads.append(thread_count2)
+  threads.append(thread_count3)
+  threads.append(thread_count4)
 
   start_time = time.time()
   for t in threads:

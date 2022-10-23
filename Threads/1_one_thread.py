@@ -1,4 +1,5 @@
-from base_project import time, count_numbers, sum_numbers_count, pop_vector_thread
+from base_project import count_numbers, sum_numbers_count, pop_vector_thread
+import time
 
 def execute():
   v_random_numbers = []
@@ -15,4 +16,5 @@ def execute():
 
   sum_numbers_count(dic_contagem)
   print(f'Time of execution: {end_time - start_time} seconds')
+
 execute()

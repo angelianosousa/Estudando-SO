@@ -1,6 +1,5 @@
 from base_project import sum_numbers_count, pop_vector_thread, counter_thread, print_vector_count
 import time
-import threading
 
 # Função principal
 def main():
@@ -12,18 +11,18 @@ def main():
 
   threads = []
 
-  thread_pop    = pop_vector_thread(1, 'pop_vetor', v_random_numbers)
+  thread_pop    = pop_vector_thread(0, 'pop_vetor', v_random_numbers)
   
-  thread_count0 = counter_thread(2, 'Counter_0', v_random_numbers, dic_contagem, 0, 0)
-  thread_count1 = counter_thread(3, 'Counter_1', v_random_numbers, dic_contagem, 1, 1)
-  thread_count2 = counter_thread(4, 'Counter_2', v_random_numbers, dic_contagem, 2, 2)
-  thread_count3 = counter_thread(5, 'Counter_3', v_random_numbers, dic_contagem, 3, 3)
+  thread_count0 = counter_thread(1, 'Counter_0', v_random_numbers, dic_contagem, 0, 0)
+  thread_count1 = counter_thread(2, 'Counter_1', v_random_numbers, dic_contagem, 1, 1)
+  thread_count2 = counter_thread(3, 'Counter_2', v_random_numbers, dic_contagem, 2, 2)
+  thread_count3 = counter_thread(4, 'Counter_3', v_random_numbers, dic_contagem, 3, 3)
 
-  thread_count4 = counter_thread(2, 'Counter_4', v_random_numbers, dic_contagem, 4, 4)
-  thread_count5 = counter_thread(3, 'Counter_5', v_random_numbers, dic_contagem, 5, 5)
-  thread_count6 = counter_thread(4, 'Counter_6', v_random_numbers, dic_contagem, 6, 6)
-  thread_count7 = counter_thread(5, 'Counter_7', v_random_numbers, dic_contagem, 7, 7)
-  thread_count8 = counter_thread(5, 'Counter_8_to_9', v_random_numbers, dic_contagem, 8, 9)
+  thread_count4 = counter_thread(5, 'Counter_4', v_random_numbers, dic_contagem, 4, 4)
+  thread_count5 = counter_thread(6, 'Counter_5', v_random_numbers, dic_contagem, 5, 5)
+  thread_count6 = counter_thread(7, 'Counter_6', v_random_numbers, dic_contagem, 6, 6)
+  thread_count7 = counter_thread(8, 'Counter_7', v_random_numbers, dic_contagem, 7, 7)
+  thread_count8 = counter_thread(9, 'Counter_8_to_9', v_random_numbers, dic_contagem, 8, 9)
 
   threads.append(thread_pop)
 
