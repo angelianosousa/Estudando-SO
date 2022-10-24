@@ -1,6 +1,5 @@
 from random import randint
 from threading import Thread, Lock
-import time
 
 exitFlag = 0
 VECTOR_LENGHT = 10**8
