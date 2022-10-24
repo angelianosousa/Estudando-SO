@@ -24,7 +24,9 @@ def execute():
     time_total += timer_run
     v_random_numbers = []
 
-    print(f'Time of execution: {timer_run}')
+    print(f'Time of execution timer {i}: {timer_run}')
+    print(f'Total of execution right now: {time_total}')
+
   print_vector_count(dic_contagem)
   sum_of_positions(dic_contagem)
   print(f'Media time of execution: {time_total/30} seconds')

@@ -15,7 +15,7 @@ def execute():
     start_time   = time.time()
 
     thread_pop   = pop_vector_thread(1, 'pop_vetor', v_random_numbers)
-    thread_count = counter_thread(2, 'Counter_1_to_1', v_random_numbers, dic_contagem, 0, 9)
+    thread_count = counter_thread(2, 'Counter_0_to_9', v_random_numbers, dic_contagem, 0, 9)
 
     threads.append(thread_pop)
     threads.append(thread_count)
@@ -33,7 +33,9 @@ def execute():
 
     timer_run   = end_time - start_time
     time_total += timer_run
-    print(f'Time of execution: {timer_run}')
+
+    print(f'Time of execution timer {i}: {timer_run}')
+    print(f'Total of execution right now: {time_total}')
 
   print_vector_count(dic_contagem)
   sum_of_positions(dic_contagem)
