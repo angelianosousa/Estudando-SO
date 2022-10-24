@@ -1,20 +1,23 @@
-from base_project import sum_of_positions, pop_vector_thread, counter_thread, print_vector_count
+from base_project import pop_vector_without_threads, print_vector_count, counter_thread
 import time
+
+RUNNER = 30
 
 def main():
   time_total = 0
 
   v_random_numbers = []
-  dic_contagem = { 
+  dic_contagem = {
     '0': 0, '1': 0, '2': 0, '3': 0, '4': 0, 
     '5': 0, '6': 0, '7': 0, '8': 0, '9': 0
   }
 
-  for i in range(0, 30):
+  for i in range(0, RUNNER):
     threads = []
 
-    # Thread that populate my vector
-    thread_pop    = pop_vector_thread(0, 'pop_vetor', v_random_numbers)
+    print('Start pop vector')
+    pop_vector_without_threads(v_random_numbers)
+    print('Finish pop vector')
     
     # Threads for counter the numbers
     thread_count0 = counter_thread(0, 'Counter_0', v_random_numbers, dic_contagem, 0, 0)
@@ -26,9 +29,8 @@ def main():
     thread_count5 = counter_thread(5, 'Counter_5', v_random_numbers, dic_contagem, 5, 5)
     thread_count6 = counter_thread(6, 'Counter_6', v_random_numbers, dic_contagem, 6, 6)
     thread_count7 = counter_thread(8, 'Counter_7', v_random_numbers, dic_contagem, 7, 7)
-    thread_count8 = counter_thread(8, 'Counter_8', v_random_numbers, dic_contagem, 8, 9)
-
-    threads.append(thread_pop)
+    thread_count8 = counter_thread(8, 'Counter_8', v_random_numbers, dic_contagem, 8, 8)
+    thread_count9 = counter_thread(9, 'Counter_9', v_random_numbers, dic_contagem, 9, 9)
 
     threads.append(thread_count0)
     threads.append(thread_count1)
@@ -40,6 +42,7 @@ def main():
     threads.append(thread_count6)
     threads.append(thread_count7)
     threads.append(thread_count8)
+    threads.append(thread_count9)
 
     start_time = time.time()   # Start counter the time
 
@@ -62,7 +65,6 @@ def main():
     print(f'Total of execution right now: {time_total}')
 
   print_vector_count(dic_contagem)
-  sum_of_positions(dic_contagem)
-  print(f'Time of execution: {time_total/30} seconds')
+  print(f'Media time of execution: {time_total/RUNNER} seconds')
 
 main()

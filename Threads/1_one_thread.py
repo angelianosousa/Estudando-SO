@@ -1,7 +1,9 @@
-from base_project import sum_of_positions, count_numbers_without_thread, print_vector_count, pop_vector_thread
+from base_project import print_vector_count, pop_vector_without_threads, counter_thread
 import time
 
-def execute():
+RUNNER = 30
+
+def main():
   time_total = 0
 
   v_random_numbers = []
@@ -10,14 +12,18 @@ def execute():
     '5': 0, '6': 0, '7': 0, '8': 0, '9': 0
   }
 
-  for i in range(0, 30):
+  for i in range(0, RUNNER):
+    print('Start pop vector')
+    pop_vector_without_threads(v_random_numbers)
+    print('Finish pop vector')
+
+    thread_count = counter_thread(1, 'Counter_0_to_9', v_random_numbers, dic_contagem, 0, 9)
+
     start_time = time.time()
-    thread_pop = pop_vector_thread(1, 'pop_vetor', v_random_numbers)
-    thread_pop.start()
-    thread_pop.join()
+    thread_count.start()
+    thread_count.join()
     
     # To start filling the vector and counting
-    count_numbers_without_thread(v_random_numbers, dic_contagem, 0, 9)
     end_time = time.time()
 
     timer_run = end_time - start_time
@@ -28,7 +34,6 @@ def execute():
     print(f'Total of execution right now: {time_total}')
 
   print_vector_count(dic_contagem)
-  sum_of_positions(dic_contagem)
-  print(f'Media time of execution: {time_total/30} seconds')
+  print(f'Media time of execution: {time_total/RUNNER} seconds')
 
-execute()
+main()

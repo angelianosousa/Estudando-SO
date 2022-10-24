@@ -5,20 +5,6 @@ exitFlag = 0
 VECTOR_LENGHT = 10**8
 threadLock = Lock()
 
-# class populate our principal vector async
-class pop_vector_thread(Thread):
-  def __init__(self, ThreadID, name, v_random_numbers):
-    Thread.__init__(self)
-    self.ThreadID             = ThreadID
-    self.name                 = name
-    self.v_random_numbers     = v_random_numbers
-  def run(self):
-    print('Start pop vector')
-    threadLock.acquire()
-    pop_vector(self.v_random_numbers, self.name, 1)
-    threadLock.release()
-    print('Finish pop vector')
-
 # class count numbers in our principal vector async
 class counter_thread(Thread):
   def __init__(self, ThreadID, name, v_random_numbers, dict_counter, start_with, end_with):
@@ -29,25 +15,21 @@ class counter_thread(Thread):
     self.dict_counter         = dict_counter
     self.start_with           = start_with
     self.end_with             = end_with
+    self.mutex                = 1
   def run(self):
-    show_count = 1
-    while show_count:
+    while self.mutex:
       if exitFlag:
         self.name.exit()
       for i in self.v_random_numbers:
         for j in range(self.start_with, self.end_with+1):
           if self.v_random_numbers[i] == j:
             increment_dictionary(self.dict_counter, j)
-      show_count -= 1
+      self.mutex -= 1
 
 # Function that fill our vector
-def pop_vector(vector, threadName, show_count):
-  while show_count:
-    if exitFlag:
-      threadName.exit()
-    for i in range(VECTOR_LENGHT):
-      vector.insert(i, randint(0, 9))
-    show_count -= 1
+def pop_vector_without_threads(vector):
+  for i in range(VECTOR_LENGHT):
+    vector.insert(i, randint(0, 9))
 
 # Function that show that dictionary counter
 def print_vector_count(dic_contagem):
@@ -70,9 +52,3 @@ def increment_dictionary(dic_contagem, position):
   threadLock.acquire()
   dic_contagem[str(position)] += 1
   threadLock.release()
-
-# This function exist to confirm that counter is correct
-def sum_of_positions(dic_contagem):
-  sum = 0
-  for k, v in dic_contagem.items():
-    sum += v

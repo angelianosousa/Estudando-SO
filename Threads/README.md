@@ -18,9 +18,9 @@
 
 Running the script 30 time in the fourth cases we have:
 
-* 01 Thread : 41.14557249546051 seconds
-* 02 Threads: 
-* 05 Threads: 
-* 10 Threads: 
+* 01 Thread : 525.8869814078013 seconds
+* 02 Threads: 722.2382281621298 seconds
+* 05 Threads: 1526.179496765137 seconds
+* 10 Threads: 2229.949999411901 seconds
 
 > Observations: 
