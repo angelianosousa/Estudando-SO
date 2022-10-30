@@ -11,10 +11,10 @@ array_counter = Array('i', 10)
 if __name__ == '__main__':
 
   for i in range(0, RUNNER):
-    print(f'Processing for the {i} time')
     jobs = []
     my_process.populate_vector(v_random_numbers)
 
+    print(f'Processing for the {i} time')
     process_0 = my_process.Process(name='Counter 0', target=my_process.counter_numbers_on_array, args=(v_random_numbers, array_counter, 0, 0))
     process_1 = my_process.Process(name='Counter 1', target=my_process.counter_numbers_on_array, args=(v_random_numbers, array_counter, 1, 1))
     process_2 = my_process.Process(name='Counter 2', target=my_process.counter_numbers_on_array, args=(v_random_numbers, array_counter, 2, 2))
@@ -48,8 +48,9 @@ if __name__ == '__main__':
 
     total_time += end_time - start_time
     v_random_numbers = []
+    print(f'Time of execution: {end_time - start_time}')
+    print('='*30)
 
-print('='*15)
 my_process.print_array_counter(array_counter)
 my_process.check_total_numbers_array(array_counter)
 print(f'Media time of execution {total_time/RUNNER} seconds')
