@@ -1,6 +1,35 @@
 # Using Process
 
-01 Process: 43.7144033908844 seconds (checado)
-02 Process: 42.48989953994751 seconds (checado)
-05 Process: 65.86588356494903 seconds (checado)
-10 Process: 72.96798957188925 seconds (checado)
+Nº Process  | Time (seconds) With Lenovo | Time (seconds) with Aspire 5
+:----------:|:--------------------------:|:---------------------------:
+01          |43.7144                     |33.9764
+02          |42.4898                     |
+05          |65.8658                     |
+10          |72.9679                     |
+
+## Using Lock
+
+Nº Process  | Time (seconds) With Lenovo | Time (seconds) with Aspire 5
+:----------:|:--------------------------:|:---------------------------:
+01          |00.0000                     |00.0000
+02          |00.0000                     |00.0000
+05          |00.0000                     |00.0000
+10          |00.0000                     |00.0000
+
+## Using Semaphore
+
+Nº Process  | Time (seconds) With Lenovo | Time (seconds) with Aspire 5
+:----------:|:--------------------------:|:---------------------------:
+01          |00.0000                     |00.0000
+02          |00.0000                     |00.0000
+05          |00.0000                     |00.0000
+10          |00.0000                     |00.0000
+
+## Using Lock and Semaphore
+
+Nº Process  | Time (seconds) With Lenovo | Time (seconds) with Aspire 5
+:----------:|:--------------------------:|:---------------------------:
+01          |00.0000                     |00.0000
+02          |00.0000                     |00.0000
+05          |00.0000                     |00.0000
+10          |00.0000                     |00.0000

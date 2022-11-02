@@ -1,5 +1,6 @@
-from multiprocessing import Process, current_process
+from multiprocessing import current_process
 from random import randint
+# from time import sleep
 
 GENERATE_NUMBERS = 10**7
 
@@ -27,4 +28,4 @@ def counter_numbers_on_array(v_random_numbers, array_counter, start_in, ends_in)
     for key in range(start_in, ends_in+1):
       if v_random_numbers[p] == key:
           array_counter[key] += 1
-    
+          
