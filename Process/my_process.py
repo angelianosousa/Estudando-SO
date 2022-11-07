@@ -20,11 +20,10 @@ def check_total_numbers_array(array_counter):
 
 # For showing our array counter
 def print_array_counter(array_counter, n_counting, total_time):
-  last_media_time = total_time/n_counting
 
   print('Real time counter...')
   print(f'Count number: {n_counting}')
-  print(f'Last media time: {last_media_time}')
+  print(f'Last media time: {total_time/n_counting}')
 
   for i in range(0, 10):
     print(f'{i} <-> {array_counter[i]}')

@@ -5,6 +5,7 @@ import my_process
 RUNNER = 30
 total_time = 0
 v_random_numbers = []
+array_of_media_time = []
 array_counter = Array('i', 10)
 
 # This function is responsible for start ours process and showing up our array counter
@@ -79,9 +80,14 @@ def main():
 
     instance_process(n_process, jobs, semaphore)
     start_count(jobs, run, total_time)
+    array_of_media_time.append(total_time/run)
     jobs = []
   
-  print(f'Media time of execution: {total_time/RUNNER}')
+  for m in range(len(array_of_media_time)):
+    print(f'Media time for {m+1} time -> {array_of_media_time[m]}')
+
+  print('=-='*13)
   my_process.check_total_numbers_array(array_counter)
+  print(f'Media time of execution: {total_time/RUNNER}')
 
 main()
