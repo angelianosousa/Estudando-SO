@@ -3,7 +3,7 @@ from random import randint
 from time import sleep
 import csv
 
-GENERATE_NUMBERS = 10**3
+GENERATE_NUMBERS = 10**7
 
 # Populate our vector with random numbers
 def populate_vector(vector):

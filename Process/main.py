@@ -1,9 +1,8 @@
 from multiprocessing import Array, Process, active_children
 from time import time
 import my_process
-import csv
 
-RUNNER = 3
+RUNNER = 30
 total_time = 0
 v_random_numbers = []
 array_of_media_time = []
