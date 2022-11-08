@@ -1,8 +1,9 @@
 from multiprocessing import Semaphore
 from random import randint
 from time import sleep
+import csv
 
-GENERATE_NUMBERS = 10**7
+GENERATE_NUMBERS = 10**3
 
 # Populate our vector with random numbers
 def populate_vector(vector):
@@ -46,3 +47,12 @@ def counter_numbers_on_array(v_random_numbers, array_counter, start_in, ends_in,
       for key in range(start_in, ends_in+1):
         if v_random_numbers[p] == key:
             array_counter[key] += 1
+
+def write_csv(filename, fieldname, media_time):
+  with open(filename, 'w', newline='') as csvfile:
+    fieldnames = [fieldname]
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+    writer.writeheader()
+    for data in media_time:
+      writer.writerow({fieldname: data})

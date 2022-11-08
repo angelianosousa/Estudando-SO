@@ -1,8 +1,9 @@
 from multiprocessing import Array, Process, active_children
 from time import time
 import my_process
+import csv
 
-RUNNER = 30
+RUNNER = 3
 total_time = 0
 v_random_numbers = []
 array_of_media_time = []
@@ -76,11 +77,13 @@ def main():
   jobs      = []
   print('=-='*13)
 
+  # array_of_media_time.append(f'{n_process} Processo(s)')
   for run in range(1, RUNNER+1):
 
     instance_process(n_process, jobs, semaphore)
     start_count(jobs, run, total_time)
     array_of_media_time.append(total_time/run)
+
     jobs = []
   
   for m in range(len(array_of_media_time)):
@@ -89,5 +92,6 @@ def main():
   print('=-='*13)
   my_process.check_total_numbers_array(array_counter)
   print(f'Media time of execution: {total_time/RUNNER}')
+  my_process.write_csv('Process/times_of_execution.csv', f'{n_process} Processo(s)', array_of_media_time)
 
 main()
