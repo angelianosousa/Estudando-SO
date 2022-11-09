@@ -24,7 +24,6 @@ def print_array_counter(array_counter, n_counting, total_time):
 
   print('Real time counter...')
   print(f'Count number: {n_counting}')
-  print(f'Last media time: {total_time/n_counting}')
 
   for i in range(0, 10):
     print(f'{i} <-> {array_counter[i]}')
@@ -48,6 +47,7 @@ def counter_numbers_on_array(v_random_numbers, array_counter, start_in, ends_in,
         if v_random_numbers[p] == key:
             array_counter[key] += 1
 
+# For write our csv with times of execution for every counting
 def write_csv(filename, fieldname, media_time):
   with open(filename, 'w', newline='') as csvfile:
     fieldnames = [fieldname]

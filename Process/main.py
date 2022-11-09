@@ -76,12 +76,11 @@ def main():
   jobs      = []
   print('=-='*13)
 
-  # array_of_media_time.append(f'{n_process} Processo(s)')
   for run in range(1, RUNNER+1):
 
     instance_process(n_process, jobs, semaphore)
     start_count(jobs, run, total_time)
-    array_of_media_time.append(total_time/run)
+    array_of_media_time.append(str(total_time/run).replace('.', ','))
 
     jobs = []
   
