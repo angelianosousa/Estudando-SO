@@ -1,0 +1,9 @@
+# Esse código pode ser usado de 2 maneiras
+# 1) Copiar a linha e colar diretamente no terminal com o programa auditd em execução
+# 2) Adicionar a linha sem o auditctl dentro da pasta /usr/shared/audit/sample-rules/something.rules
+
+# Comando para monitorar a chamada de sistema para renomear arquivos no sistema
+auditctl -a always,exit -F arch=b64 -S rename -S renameat -F dir=/home/angeliano/Desktop/Cadeiras -F perm=w -k rename_things
+
+# Comando para monitorar alterações dentro da pasta Cadeiras
+auditctl -F dir=/home/angeliano/Desktop/Cadeiras -p warx -k subject_changes
